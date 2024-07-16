@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import './style.css'; // Importando o arquivo CSS
+import ListaLivros from './Componentes/lista_livros';
+import AdicionarLivro from './Componentes/adicionar_livro';
 
 function App() {
+  const [livros, setLivros] = useState([
+    '1984 - George Orwell',
+    'To Kill a Mockingbird - Harper Lee',
+    'The Great Gatsby - F. Scott Fitzgerald',
+    'One Hundred Years of Solitude - Gabriel Garcia Marquez',
+    'Pride and Prejudice - Jane Austen'
+  ]);
+
+  const adicionarLivro = (novoLivro) => {
+    setLivros([...livros, novoLivro]);
+  };
+
+  const excluirLivro = (index) => {
+    setLivros(livros.filter((_, i) => i !== index));
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>Lista de Livros Recomendados</h1>
+      <ListaLivros livros={livros} excluirLivro={excluirLivro} />
+      <AdicionarLivro adicionarLivro={adicionarLivro} />
     </div>
   );
 }
