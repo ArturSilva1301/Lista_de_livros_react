@@ -20,10 +20,16 @@ function App() {
     setLivros(livros.filter((_, i) => i !== index));
   };
 
+  const editarLivro = (index, novoTitulo) => {
+    const novosLivros = [...livros];
+    novosLivros[index] = novoTitulo;
+    setLivros(novosLivros);
+  };
+
   return (
     <div className="container">
       <h1>Lista de Livros Recomendados</h1>
-      <ListaLivros livros={livros} excluirLivro={excluirLivro} />
+      <ListaLivros livros={livros} excluirLivro={excluirLivro} editarLivro={editarLivro} />
       <AdicionarLivro adicionarLivro={adicionarLivro} />
     </div>
   );
