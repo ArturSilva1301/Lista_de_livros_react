@@ -34,7 +34,7 @@ Componente responsável por renderizar a lista de livros com funcionalidades de 
 ```const handleEdit = (index) => {
   setEditIndex(index);
   setNovoTitulo(livros[index]);
-}
+}```
 
 
 2. **`handleSave(index)`**
@@ -51,7 +51,7 @@ Componente responsável por renderizar a lista de livros com funcionalidades de 
   editarLivro(index, novoTitulo);
   setEditIndex(null);
   setNovoTitulo('');
-};
+};```
 
 #### Resumo do Componente
 
@@ -93,7 +93,7 @@ Componente responsável por permitir ao usuário adicionar novos livros à lista
     adicionarLivro(novoLivro);
     setNovoLivro('');
   }
-};
+};```
 
 #### Resumo do Componente
 
